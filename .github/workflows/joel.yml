@@ -50,6 +50,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          file: ./molina.dockerfile 
           push: true
           tags: ghcr.io/joelo15/joel:latest
 
