@@ -1,11 +1,8 @@
-import unittest
+from app import app
 
-from app import suma
-
-class TestApp(unittest.TestCase):
-    def test_suma(self):
-        self.assertEqual(suma(2, 3), 5)   
-        self.assertEqual(suma(-1, 1), 0)
-
-if __name__ == "__main__":
-    unittest.main()
+def test_suma_endpoint():
+    client = app.test_client()
+    response = client.get("/suma?a=3&b=5")
+    data = response.get_json()
+    assert response.status_code == 200
+    assert data["resultado"] == 8
