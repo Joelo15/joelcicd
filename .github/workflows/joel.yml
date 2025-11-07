@@ -25,7 +25,7 @@ jobs:
 
       - name: Ejecutar pruebas
         run: |
-          pytest
+          pytest -v
           ruff check .
 
   build_and_push:
